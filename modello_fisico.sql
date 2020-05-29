@@ -94,4 +94,8 @@ create table ripetizione (
     numero smallint not null
 );
 
-
+create table composto (
+    esercizio_id serial references esercizio(id),
+    allenamento_id serial references allenamento(id),
+    primary key (esercizio_id, allenamento_id)
+);
