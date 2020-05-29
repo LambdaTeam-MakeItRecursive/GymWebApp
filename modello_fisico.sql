@@ -54,10 +54,15 @@ create table esercizio_serie (
     esercizio_id serial primary key references esercizio(id),
     numero smallint not null,
     intervallo interval,
-    carico real,
     durata interval,
     nome_strumento_utilizzato text,
     peso_strumento real
+);
+
+create table dati_esercizi_serie (
+    esercizio_serie_id serial primary key references esercizio_serie(esercizio_id),
+    carico real not null,
+    serie_corrente smallint not null unique
 );
 
 create table riscaldamento (
